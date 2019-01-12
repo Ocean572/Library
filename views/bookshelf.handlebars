@@ -1,0 +1,56 @@
+  <div class="bg-image">
+  </div>
+  <div class="tableContainer">
+    <div style="text-align: center;">
+      <button href="#" id="popup" onclick="openForm()" class="newBookButton">New Book</button> 
+    </div><br><br>
+
+    <style type="text/css">
+    .tg  {border-collapse:collapse;border-spacing:0;border-color:#aaa;margin:0px auto;}
+    .tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#aaa;color:#333;background-color:#fff;}
+    .tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#aaa;color:#fff;background-color:#f38630;}
+    .tg .tg-0lax{text-align:left;vertical-align:top}
+    </style>
+    <table class="tg">
+      <tr>
+        <th class="tg-0lax">Title</th>
+        <th class="tg-0lax">Author</th>
+        <th class="tg-0lax">Date Published</th>
+        <th class="tg-0lax"># of pages</th>
+        <th class="tg-0lax">Download</th>
+        <th class="tg-0lax">Read?</th>
+        <th class="tg-0lax">Delete</th>
+      </tr>
+      <tr class="node">
+        <td class="tg-0lax title">The Lord of the Rings</td>
+        <td class="tg-0lax author">Tolkien</td>
+        <td class="tg-0lax datePub">1943</td>
+        <td class="tg-0lax pageNum">500</td>
+        <td class="tg-0lax file">File</td>
+        <td onclick="readBook()" class="tg-0lax read">No</td>
+        <td onclick="deleteBook()" class="tg-0lax delete">Delete Book</td>
+      </tr>
+    </table>
+  </div>
+  <div class="formPopup" id="bookForm" role="form">
+    <form class="form-container" action="/process?form=book" method="POST">
+      <h1>Enter Book</h1>
+
+      <input type="hidden" name="_csrf" value="{{csrf}}">
+
+      <label for="title"><b>Title</b></label>
+      <input type="text" placeholder="Enter Title" name="title" required> 
+
+      <label for="author"><b>Author</b></label>
+      <input type="text" placeholder="Enter Author" name="author" required> 
+
+      <label for="published"><b>Date Published</b></label>
+      <input type="text" placeholder="Enter Date Published" name="datePub" required> 
+
+      <label for="pages"><b>Number of Pages</b></label>
+      <input type="text" placeholder="Enter Number of Pages" name="pageNum" required> 
+
+      <button type="submit" class="btn">Submit</button>
+      <button type="submit" class="btn cancel" onclick="closeForm()">Close</button>
+    </form>
+  </div>
