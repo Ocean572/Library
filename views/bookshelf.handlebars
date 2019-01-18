@@ -1,5 +1,5 @@
-  <div class="bg-image">
-  </div>
+<div class="bg-image">
+</div>
   <div class="tableContainer">
     <div style="text-align: center;">
       <button href="#" id="popup" onclick="openForm()" class="newBookButton">New Book</button> 
@@ -28,10 +28,11 @@
         <td class="tg-0lax pageNum">500</td>
         <td class="tg-0lax file">File</td>
         <td onclick="readBook()" class="tg-0lax read">No</td>
-        <td onclick="deleteBook()" class="tg-0lax delete">Delete Book</td>
+        <td class="tg-0lax delete"><a id="linker" href="/deleteRow/The_Lord_of_the_Rings">Delete Book</a></td>
       </tr>
     </table>
   </div>
+  <script src="js/bookScript.js"></script>
   <div class="formPopup" id="bookForm" role="form">
     <form class="form-container" action="/process?form=book" method="POST">
       <h1>Enter Book</h1>

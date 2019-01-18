@@ -368,17 +368,19 @@ textarea {
 }
 
 .bg-image {
-    background-image: url("../woodenBackground.jpg");
+    background-image: url('/images/woodenBackground.jpg');
     background-repeat: repeat-y;
-    height: 100%;
-    background-position: center;
     background-size: cover;
+    position: absolute;
+    height: 100%;
+    width: 100%;
     opacity: 0.5;
+    z-index: 1;
 }
 
 .tableContainer {
-    position: absolute;
-    top: 30%;
+    position: relative;
+    top: 14em;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 2;
@@ -440,4 +442,15 @@ textarea {
 
 .delete:hover {
     background-color: red;
+}
+
+/* ==========================================================================
+   Navbar login
+   ========================================================================== */
+.navbar .dropdown-menu .form-control {
+    width: 200px;
+}
+
+button:focus {
+    outline: 0;
 }

@@ -1,15 +1,26 @@
 let template = document.querySelector(".node");  
 let tg = document.querySelector(".tg");
+let cssStyler = ((1.3*book.length) + 14)
+let cssStylerDown = (((1.3*book.length) + 14) - 1.3)
 
-let myLibrary = [];
-
-let book = {
-	bookTitle: "",
-	author: "",
-	datePub: "",
-	pageNum: ""
+window.onload = function() {
+	for(i = 0; i < book.length; i++) {
+	let clone = template.cloneNode(true);
+	clone.querySelector(".title").innerText = book[i].title;
+	clone.querySelector(".author").innerText = book[i].author;
+	clone.querySelector(".datePub").innerText = book[i].datePub;
+	clone.querySelector(".pageNum").innerText = book[i].pageNum;
+	let preLink = "/deleteRow/" + book[i].title;
+	let link = preLink.replace(/ /g, '_');
+	clone.querySelector('#linker').href = link;
+	tg.appendChild(clone);
+	};
+	if(book.length >= 0) {
+		document.querySelector('.tableContainer').style.top = cssStyler + "em";
+	};
 };
 
+/*
 function addBook() {
 	let clone = template.cloneNode(true);
 	clone.querySelector(".title").innerText = book.bookTitle;
@@ -18,11 +29,17 @@ function addBook() {
 	clone.querySelector(".pageNum").innerText = book.pageNum;
 	tg.appendChild(clone);
 };
+*/
 
+/*
 function deleteBook(event) {
 	row = this.event.path[1];
 	row.remove();
+	if(book.length >= 0) {
+		document.querySelector('.tableContainer').style.top = cssStylerDown + "em";
+	};
 }
+*/
 
 function readBook(event) {
 	row = this.event.path[0];
@@ -32,13 +49,3 @@ function readBook(event) {
 		row.innerText = "No"
 	}
 }
-
-$("form").submit(function(event) {
-	let array = $(this).serializeArray();
-	event.preventDefault();
-	book.bookTitle = array[0].value;
-	book.author = array[1].value;
-	book.datePub = array[2].value;
-	book.pageNum = array[3].value;
-	addBook();
-});
