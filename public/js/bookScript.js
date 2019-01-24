@@ -13,6 +13,15 @@ window.onload = function() {
 	let preLink = "/deleteRow/" + book[i].title;
 	let link = preLink.replace(/ /g, '_');
 	clone.querySelector('#linker').href = link;
+	let preLinkUpload = '/uploadFile/' + book[i].title;
+	let linkUpload = preLinkUpload.replace(/ /g, '_');
+	clone.querySelector('#uploadLinker').action = linkUpload;
+	if(book[i].bookFile == true){
+		clone.querySelector('#uploadLinker').remove();
+		var observeFileLink = clone.querySelector('#readBookLinks');
+		observeFileLink.innerText = 'Read Book'
+		observeFileLink.href = '/openFile/' + book[i].title;
+	};
 	tg.appendChild(clone);
 	};
 	if(book.length >= 0) {

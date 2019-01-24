@@ -1,1 +1,1 @@
-var book = []
+var book = []; module.exports.book = book

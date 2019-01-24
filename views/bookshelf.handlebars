@@ -26,7 +26,13 @@
         <td class="tg-0lax author">Tolkien</td>
         <td class="tg-0lax datePub">1943</td>
         <td class="tg-0lax pageNum">500</td>
-        <td class="tg-0lax file">File</td>
+        <td class="tg-0lax file" id="fileContainer">
+          <a id="readBookLinks" target="_blank"></a>
+          <form id="uploadLinker" action="/uploadFile/The_Lord_of_the_Rings" method="POST" enctype="multipart/form-data">
+            <input type="file" name="file" id="fileToUpload">
+            <input type="submit" value="Upload" name="submit">
+          </form>
+        </td>
         <td onclick="readBook()" class="tg-0lax read">No</td>
         <td class="tg-0lax delete"><a id="linker" href="/deleteRow/The_Lord_of_the_Rings">Delete Book</a></td>
       </tr>

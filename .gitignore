@@ -2,5 +2,6 @@
 node_modules
 library-bb644723d6a6.json
 credentials.js
+.DS_Store
 # put any other files you don't want to check in here,
 # such as .DS_Store (OSX), *.bak, etc.
